@@ -1,0 +1,14 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowSSMBuckets",
+            "Effect": "Allow",
+            "Action": "s3:GetObject",
+            "Resource": [
+                "arn:aws:s3:::amazon-ssm-ap-northeast-2/*",
+                "arn:aws:s3:::aws-ssm-ap-northeast-2/*"
+            ]
+        }
+    ]
+}

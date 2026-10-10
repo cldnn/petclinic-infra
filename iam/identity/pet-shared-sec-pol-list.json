@@ -1,0 +1,21 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "internetmonitor:ListMonitors",
+                "route53resolver:ListFirewallRuleGroupAssociations",
+                "ssm:ListDocuments",
+                "ssm:GetServiceSetting"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "GetSessionManagerRunShellDocument",
+            "Effect": "Allow",
+            "Action": "ssm:GetDocument",
+            "Resource": "arn:aws:ssm:ap-northeast-2:*:document/SSM-SessionManagerRunShell"
+        }
+    ]
+}

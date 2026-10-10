@@ -1,0 +1,23 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "cloudwatch:PutMetricAlarm",
+                "cloudwatch:DescribeAlarms",
+                "cloudwatch:DeleteAlarms",
+                "sns:CreateTopic",
+                "sns:GetTopicAttributes",
+                "sns:SetTopicAttributes",
+                "sns:List*",
+                "sns:Subscribe",
+                "logs:Describe*",
+                "kms:List*",
+                "kms:Describe*",
+                "kms:Get*"
+            ],
+            "Resource": "*"
+        }
+    ]
+}

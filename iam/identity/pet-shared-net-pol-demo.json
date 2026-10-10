@@ -1,0 +1,51 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "ZonalShiftOnDemoResources",
+            "Effect": "Allow",
+            "Action": [
+                "arc-zonal-shift:StartZonalShift",
+                "arc-zonal-shift:UpdateZonalShift",
+                "arc-zonal-shift:CancelZonalShift",
+                "arc-zonal-shift:GetManagedResource"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringLike": {
+                    "arc-zonal-shift:ResourceIdentifier": [
+                        "arn:aws:elasticloadbalancing:ap-northeast-2:*:loadbalancer/app/*",
+                        "arn:aws:autoscaling:ap-northeast-2:*:autoScalingGroup:*"
+                    ]
+                }
+            }
+        },
+        {
+            "Sid": "FaultInjectionByRunCommand",
+            "Effect": "Allow",
+            "Action": "ssm:SendCommand",
+            "Resource": [
+                "arn:aws:ssm:ap-northeast-2::document/AWS-RunShellScript",
+                "arn:aws:ec2:ap-northeast-2:*:instance/*"
+            ]
+        },
+        {
+            "Sid": "ReadOnlyForDemo",
+            "Effect": "Allow",
+            "Action": [
+                "arc-zonal-shift:ListManagedResources",
+                "arc-zonal-shift:ListZonalShifts",
+                "ec2:DescribeAvailabilityZones",
+                "ec2:DescribeInstances",
+                "ssm:ListCommandInvocations",
+                "elasticloadbalancing:DescribeLoadBalancers",
+                "elasticloadbalancing:DescribeTargetGroups",
+                "elasticloadbalancing:DescribeTargetHealth",
+                "autoscaling:DescribeAutoScalingGroups",
+                "cloudwatch:DescribeAlarms",
+                "cloudwatch:GetMetricData"
+            ],
+            "Resource": "*"
+        }
+    ]
+}

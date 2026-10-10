@@ -1,0 +1,35 @@
+# Build output
+target/
+*.war
+*.class
+
+# Installation packages (kept in the S3 packages bucket)
+*.tar.gz
+*.zip
+*.rpm
+*.msi
+
+# Credentials and secrets
+*.pem
+# Public RDS CA bundle (no private key)
+!was/global-bundle.pem
+*.ppk
+*.key
+.env
+*.env
+.aws/
+credentials
+
+# Logs
+*.log
+
+# IDE and OS
+.idea/
+*.iml
+.vscode/
+.settings/
+.classpath
+.project
+.DS_Store
+Thumbs.db
+desktop.ini

@@ -1,0 +1,94 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowCreateDBProxy",
+            "Effect": "Allow",
+            "Action": "rds:CreateDBProxy",
+            "Resource": "*"
+        },
+        {
+            "Sid": "AllowTagDBProxy",
+            "Effect": "Allow",
+            "Action": "rds:AddTagsToResource",
+            "Resource": "arn:aws:rds:ap-northeast-2:*:db-proxy:*"
+        },
+        {
+            "Sid": "AllowRegisterDBProxyTargets",
+            "Effect": "Allow",
+            "Action": "rds:RegisterDBProxyTargets",
+            "Resource": "arn:aws:rds:ap-northeast-2:*:db-proxy:*"
+        },
+        {
+            "Sid": "AllowDescribeRDSResources",
+            "Effect": "Allow",
+            "Action": [
+                "rds:DescribeDBProxies",
+                "rds:DescribeDBProxyTargets",
+                "rds:DescribeDBProxyTargetGroups",
+                "rds:DescribeDBInstances",
+                "rds:DescribeDBClusters"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "AllowDescribeSecrets",
+            "Effect": "Allow",
+            "Action": "secretsmanager:DescribeSecret",
+            "Resource": "arn:aws:secretsmanager:ap-northeast-2:*:secret:*"
+        },
+        {
+            "Sid": "AllowCreateRDSProxyRole",
+            "Effect": "Allow",
+            "Action": "iam:CreateRole",
+            "Resource": "arn:aws:iam::*:role/service-role/rds-proxy-role-*"
+        },
+        {
+            "Sid": "AllowPassRDSProxyRole",
+            "Effect": "Allow",
+            "Action": "iam:PassRole",
+            "Resource": "arn:aws:iam::*:role/service-role/rds-proxy-role-*",
+            "Condition": {
+                "StringEquals": {
+                    "iam:PassedToService": "rds.amazonaws.com"
+                }
+            }
+        },
+        {
+            "Sid": "CreateRDSProxyPolicy",
+            "Effect": "Allow",
+            "Action": [
+                "iam:CreatePolicy",
+                "iam:GetPolicy",
+                "iam:DeletePolicy",
+                "iam:CreatePolicyVersion",
+                "iam:ListPolicyVersions",
+                "iam:ListPolicyTags",
+                "iam:ListEntitiesForPolicy",
+                "iam:GetPolicyVersion",
+                "iam:DeletePolicyVersion",
+                "iam:SetDefaultPolicyVersion"
+            ],
+            "Resource": "arn:aws:iam::*:policy/service-role/rds-proxy-policy-*"
+        },
+        {
+            "Sid": "AttachRDSProxyPolicy",
+            "Effect": "Allow",
+            "Action": [
+                "iam:AttachRolePolicy",
+                "iam:DeleteRole",
+                "iam:DeleteRolePolicy",
+                "iam:DetachRolePolicy",
+                "iam:GetRolePolicy",
+                "iam:PutRolePolicy"
+            ],
+            "Resource": "arn:aws:iam::*:role/service-role/rds-proxy-role-*"
+        },
+        {
+            "Sid": "AllowValidatePolicy",
+            "Effect": "Allow",
+            "Action": "access-analyzer:ValidatePolicy",
+            "Resource": "*"
+        }
+    ]
+}

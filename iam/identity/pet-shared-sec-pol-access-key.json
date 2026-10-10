@@ -1,0 +1,19 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowManageOwnAccessKey",
+            "Effect": "Allow",
+            "Action": [
+                "iam:CreateAccessKey",
+                "iam:GetAccessKeyLastUsed",
+                "iam:ListAccessKeys",
+                "iam:UpdateAccessKey",
+                "iam:DeleteAccessKey",
+                "iam:TagUser",
+                "iam:UntagUser"
+            ],
+            "Resource": "arn:aws:iam::*:user/${aws:username}"
+        }
+    ]
+}

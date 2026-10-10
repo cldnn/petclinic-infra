@@ -1,0 +1,43 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ssm:StartSession",
+                "ssm:SendCommand"
+            ],
+            "Resource": [
+                "arn:aws:ec2:ap-northeast-2:*:instance/*",
+                "arn:aws:ssm:ap-northeast-2:*:document/SSM-SessionManagerRunShell"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ssmmessages:OpenDataChannel"
+            ],
+            "Resource": [
+                "arn:aws:ssm:*:*:session/${aws:userid}-*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ssm:GetConnectionStatus",
+                "ssm:DescribeInstanceInformation"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ssm:TerminateSession",
+                "ssm:ResumeSession"
+            ],
+            "Resource": [
+                "arn:aws:ssm:*:*:session/${aws:userid}-*"
+            ]
+        }
+    ]
+}
