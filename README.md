@@ -1,6 +1,7 @@
-# petclinic-infra
+# 펫 클리닉 3계층 아키텍처 인프라 구축 프로젝트
 
-Spring PetClinic을 AWS 서울 리전에 3계층(CloudFront → 웹 → WAS → RDS)으로 구축한 프로젝트의 설정 파일과 문서를 모은 저장소다.
+- PetClinic 샘플을 사용하여 AWS 서울 리전에 3계층(CloudFront → 웹 → WAS → RDS)으로 구축한 프로젝트의 설정 파일과 문서를 모은 저장소입니다.
+- 기간: 2026. 9. 21. ~ 2026. 10. 14. (13일 작업)
 
 - **구축 절차서**: [Wiki](https://github.com/cldnn/petclinic-infra/wiki)
 
@@ -29,4 +30,4 @@ Spring PetClinic을 AWS 서울 리전에 3계층(CloudFront → 웹 → WAS → 
 
 ## 올리지 않는 것
 
-빌드 결과물(WAR), 설치 패키지(`*.tar.gz`), 키 페어, 액세스 키, 암호, CloudFront 사용자 지정 헤더 값은 저장소에 올리지 않는다. 설치 패키지는 S3 패키지 버킷에 둔다.
+빌드 결과물(WAR), 설치 패키지(`*.tar.gz`), 키 페어, 액세스 키, 암호, CloudFront 사용자 지정 헤더 값은 저장소에 올리지 않았습니다.
