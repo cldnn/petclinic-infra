@@ -14,8 +14,6 @@
 | `web/` | Apache 리버스 프록시 설정(`proxy.conf`), 안내 페이지(`index.html`), CloudFront 오류 페이지 |
 | `was/` | PetClinic 애플리케이션 소스 (Java 8, Tomcat 9, MySQL) |
 | `db/test-data/` | 부하 시험용 테스트 데이터 SQL과 실행 스크립트 |
-| `docs/` | 절차서 밖의 공개 문서 |
-| `evidence/` | 시험 결과 등 증적 |
 
 ## 구성 요약
 
