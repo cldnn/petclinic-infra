@@ -67,7 +67,7 @@ MySQL database 접속 설정을 하기 위해, pom.xml 파일에 정의 된 'MyS
     <jdbc.username>petclinic</jdbc.username>
     <jdbc.password>petclinic</jdbc.password>
 </properties>
-```      
+```
 
 Tomcat 에 재배포
 
@@ -82,7 +82,29 @@ Tomcat 에 재배포
 
 You can then access petclinic here: [http://localhost:8080/petclinic](http://localhost:8080/petclinic)
 
+## 라이선스와 변경 사항
 
+이 소스는 [SteveKimbespin/petclinic_btc](https://github.com/SteveKimbespin/petclinic_btc)에서 받아 Cloud 9 팀이 변경한 것이다. petclinic_btc는 [Spring Framework PetClinic](https://github.com/spring-petclinic/spring-framework-petclinic)을 바탕으로 한 실습용 저장소다. 원본처럼 Apache License 2.0을 따르며, 전문은 [`LICENSE.txt`](LICENSE.txt)에 있다. 고친 파일에는 머리 주석에 `Modified by Cloud 9 (2026)`을 기록하였다.
 
+### 수정한 파일
 
+| 파일 | 수정 내용 |
+| --- | --- |
+| `pom.xml` | Spring Framework 5.3.39, Tomcat 9.0.122로 올림. Spring BOM 추가. MySQL 드라이버를 `com.mysql:mysql-connector-j` 8.4.0으로 교체. Secrets Manager JDBC 드라이버(`aws-secretsmanager-jdbc` 2.1.3)를 JDBC 드라이버로 지정. `whoami.jsp`용 AWS SDK `elasticloadbalancingv2` 2.41.3 추가. MySQL 프로필의 접속 주소, 계정, 암호 기본값 제거. H2, HSQLDB, PostgreSQL 프로필 제거. `datasource-config.xml`을 리소스 필터링에서 제외 |
+| `web/OwnerController.java`, `web/VisitController.java` | 폼 바인딩을 차단 목록에서 허용 목록 방식으로 변경.(CVE-2024-38820) |
+| `web/PetController.java` | 허용 목록 바인딩, URL의 `petId` 사용, 보호자와 반려동물 관계 검증. |
+| `jsp/pets/createOrUpdatePetForm.jsp` | 숨은 `id` 필드 제거. |
+| `spring/data-access.properties`, `spring/datasource-config.xml` | 접속 주소와 계정을 JVM 시스템 속성으로 받음. 연결 검증 추가. 시작 시 DB 초기화 SQL 비활성화. |
+| `web/PetControllerTests.java` | 보호자와 반려동물 관계 검증에 맞추어 테스트 수정. |
 
+### 추가한 파일
+
+| 파일 | 내용 |
+| --- | --- |
+| `WEB-INF/web.xml` | 400 오류를 `exception.jsp`로 연결. |
+| `whoami.jsp` | 응답한 WAS와 대상 그룹 상태 표시. |
+| `global-bundle.pem` | Amazon RDS 인증서 번들. AWS가 공개 배포하는 CA 인증서다.([출처](https://truststore.pki.rds.amazonaws.com/global/global-bundle.pem)) |
+
+### 삭제한 파일
+
+- `src/main/resources/db/h2`, `db/hsqldb`, `db/postgresql`: MySQL만 사용하므로 삭제하였다.

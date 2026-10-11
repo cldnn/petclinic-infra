@@ -1,3 +1,4 @@
+<%-- Modified by Cloud 9 (2026): removed the hidden pet id field; the id is taken from the URL. --%>
 <%@ page session="false" trimDirectiveWhitespaces="true" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>

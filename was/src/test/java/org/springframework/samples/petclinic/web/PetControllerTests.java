@@ -22,6 +22,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * Test class for the {@link PetController}
  *
  * @author Colin But
+ *
+ * Modified by Cloud 9 (2026): tests follow the pet ownership check in PetController.
  */
 @SpringJUnitWebConfig(locations = {"classpath:spring/mvc-core-config.xml", "classpath:spring/mvc-test-config.xml"})
 class PetControllerTests {

@@ -12,6 +12,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
+ * Modified by Cloud 9 (2026): bind only the pet form fields, take the pet id from the URL and check that the pet belongs to the owner in the URL.
  */
 package org.springframework.samples.petclinic.web;
 

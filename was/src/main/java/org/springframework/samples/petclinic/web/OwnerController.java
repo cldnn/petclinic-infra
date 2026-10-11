@@ -12,6 +12,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
+ * Modified by Cloud 9 (2026): bind only the owner form fields (allow-list instead of a deny-list, CVE-2024-38820).
  */
 package org.springframework.samples.petclinic.web;
 

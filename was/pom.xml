@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Modified by Cloud 9 (2026): Spring Framework 5.3.39, Tomcat 9.0.122, Spring BOM, mysql-connector-j 8.4.0, Secrets Manager JDBC driver, AWS SDK elasticloadbalancingv2, MySQL profile only without default credentials, datasource-config.xml excluded from resource filtering. -->
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
