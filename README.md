@@ -26,6 +26,6 @@
 | DB | RDS for MySQL 8.4 Multi-AZ `db.t4g.small`, RDS Proxy (TLS 필수) |
 | 서버 접속 | Systems Manager Session Manager |
 
-## 올리지 않는 것
+## 올리지 않은 것
 
 빌드 결과물(WAR), 설치 패키지(`*.tar.gz`), 키 페어, 액세스 키, 암호, CloudFront 사용자 지정 헤더 값은 저장소에 올리지 않았습니다.
